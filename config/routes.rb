@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # }
 
   resources :films
-
+  resources :categories
   root "films#index"
 end
