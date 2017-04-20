@@ -1,7 +1,10 @@
 .review-show
-  %p =review.text
+  %p
+  =review.text
   %p
     %label by:
-    %strong =review.user.full_name
-    %label reviewed on: =review.reviewed_at
-    =link_to("Add comment", PLACEHOLDER(NESTED COMMENT PATH))
+    %strong
+      =review.user.full_name
+    %label reviewed on:
+    =review.reviewed_at
+    -# =link_to("Add comment", PLACEHOLDER(NESTED COMMENT PATH))

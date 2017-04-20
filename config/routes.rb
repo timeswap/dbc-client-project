@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   #   sessions: 'users/sessions'
   # }
 
-  resources :films
+  resources :films do
+    get '/reviews/new', to: 'reviews#film_new'
+  end
+
+  resources :reviews, only: [:show, :edit, :update, :destroy]
+
 
   root "films#index"
 end

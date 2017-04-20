@@ -1,21 +1,21 @@
 -if @review.reviewable_type == "Film"
-  %h1 Review for
-    = @review.film.title
+  %h1
+    ="Review for #{@review.reviewable.title}"
 -else
-  %h1 Review for
-    = @review.actor.first_name + " " + @review.actor.last_name
+  %h1
+    ="Review for #{@review.reviewable.first_name} #{@review.actor.last_name}"
 
 .review-full
   %p
-    =render partial: 'show'
+    =render partial: 'show', locals: {review: @review}
   -if current_user == @review.user
     -# =link_to("Edit", PLACEHOLDER FOR EDIT PATH)
     -# =link_to("Delete", PLACEHOLDER FOR DELETE PATH, method: 'DELETE')
 
   %label Rating:
-    = @review.rating_avg
+  = @review.rating_avg
 
-  -if !@raters.include?(current_user)
+  -if !@review.raters.include?(current_user)
     -# = render partial: 'ratings/form'
 
 .review-comments
