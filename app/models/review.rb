@@ -7,6 +7,22 @@ class Review < ApplicationRecord
 
   validates :text, presence: true
 
+  def raters
+    if self.ratings.empty?
+      []
+    else
+      self.ratings.map {|rating| rating.user}
+    end
+  end
+
+  def rating_avg
+    if self.ratings.empty?
+      "no ratings yet!"
+    else
+      (self.ratings.reduce { |sum, rating| sum + rating.stars })/self.ratings.length
+    end
+  end
+
   def reviewed_at
     self.created_at.asctime
   end
