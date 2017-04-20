@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     post '/reviews', to: 'reviews#film_create'
   end
 
-  resources :reviews, only: [:show, :edit, :update, :destroy]
+  resources :reviews, except: [:new, :create]
 
   resources :categories
 

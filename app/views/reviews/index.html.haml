@@ -1,0 +1,4 @@
+%h1 Top 5 Latest Reviews!
+
+- @reviews.each do |review|
+  = render partial: 'show', locals: {review: review}
