@@ -8,6 +8,6 @@ class Review < ApplicationRecord
   validates :text, presence: true
 
   def self.recent
-    Review.order_by("created_on").limit(5)
+    Review.order("created_at DESC").limit(5)
   end
 end
