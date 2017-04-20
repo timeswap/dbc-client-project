@@ -9,7 +9,7 @@
   %p
     =render partial: 'show', locals: {review: @review}
   -if current_user == @review.user
-    = link_to("Edit", review_path(@review), method: 'PATCH')
+    = link_to("Edit", edit_review_path(@review))
     = link_to("Delete", review_path(@review), method: 'DELETE')
 
   %label Rating:

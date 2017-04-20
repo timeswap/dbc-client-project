@@ -22,14 +22,29 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def
-
   def edit
+    authenticate
+    @review = Review.find(params[:id])
+    check_user
+  end
 
+  def update
+    authenticate
+    @review = Review.find(params[:id])
+    check_user
+    if @review.update(review_params)
+      redirect_to @review
+    else
+      @errors = @review.errors.full_messages
+      render 'edit'
+    end
   end
 
   def destroy
-    Review.find(params[:id]).destroy
+    authenticate
+    @review = Review.find(params[:id])
+    check_user
+    @review.destroy
     redirect_to '/'
   end
 
@@ -41,6 +56,10 @@ class ReviewsController < ApplicationController
 
   def authenticate
     redirect_to '/' unless current_user.trusted
+  end
+
+  def check_user
+    redirect_to '/' unless @review.user == current_user
   end
 
 end
