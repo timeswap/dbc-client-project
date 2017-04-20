@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :films do
     get '/reviews/new', to: 'reviews#film_new'
+    post '/reviews', to: 'reviews#film_create'
   end
 
   resources :reviews, only: [:show, :edit, :update, :destroy]

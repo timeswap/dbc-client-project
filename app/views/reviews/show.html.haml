@@ -1,24 +1,25 @@
 -if @review.reviewable_type == "Film"
   %h1
-    ="Review for #{@review.reviewable.title}"
+    Review for #{@review.reviewable.title}
 -else
   %h1
-    ="Review for #{@review.reviewable.first_name} #{@review.actor.last_name}"
+    Review for #{@review.reviewable.first_name} #{@review.actor.last_name}
 
 .review-full
   %p
     =render partial: 'show', locals: {review: @review}
   -if current_user == @review.user
-    -# =link_to("Edit", PLACEHOLDER FOR EDIT PATH)
-    -# =link_to("Delete", PLACEHOLDER FOR DELETE PATH, method: 'DELETE')
+    = link_to("Edit", review_path(@review), method: 'PATCH')
+    = link_to("Delete", review_path(@review), method: 'DELETE')
 
   %label Rating:
   = @review.rating_avg
 
-  -if !@review.raters.include?(current_user)
+  - if !@review.raters.include?(current_user)
     -# = render partial: 'ratings/form'
 
 .review-comments
   %h2 Comments:
-  -@review.comments.each do |comment|
-    -# =render partial: 'comments/show', locals: {comment: comment}
+  - @review.comments.each do |comment|
+    PLACEHOLDER
+    -# = render partial: 'comments/show', locals: {comment: comment}
