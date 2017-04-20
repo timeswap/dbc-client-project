@@ -12,7 +12,16 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
-  def set_user_permission(input_code)
-    self.trusted = true if "ILOVENICHOLASCAGE" == input_code
+  def secret_code
+    @secret_code ||= ""
   end
+
+  def secret_code=(input_code)
+    @secret_code = input_code
+    self.trusted = true if "ILOVENICHOLASCAGE" == @secret_code
+  end
+
+  # def password=(new_password)
+
+  # User.new(username: 'namuun', password: 12343 secret_code: "Iloveblah")
 end
