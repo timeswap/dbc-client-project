@@ -1,0 +1,5 @@
+%h3 Categories list
+
+- @categories.each do |category|
+  = link_to "#{category.title}", category_url(category)
+  %br/
