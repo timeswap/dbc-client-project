@@ -2,4 +2,5 @@
   Newest 5 reviews in #{@category.title}
 - @films.each do |film|
   = link_to "#{film.title}", film_url(film)
+  = film.reviews
   %br/
