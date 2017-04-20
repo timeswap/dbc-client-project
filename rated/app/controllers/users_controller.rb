@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
   #   To verify if a user is signed in, use the following helper:
