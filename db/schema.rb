@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420002827) do
+ActiveRecord::Schema.define(version: 20170420001954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,21 +29,6 @@ ActiveRecord::Schema.define(version: 20170420002827) do
     t.datetime "updated_at", null: false
     t.index ["actor_id"], name: "index_actors_films_on_actor_id", using: :btree
     t.index ["film_id"], name: "index_actors_films_on_film_id", using: :btree
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories_films", force: :cascade do |t|
-    t.integer  "film_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_categories_films_on_category_id", using: :btree
-    t.index ["film_id"], name: "index_categories_films_on_film_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -107,8 +92,6 @@ ActiveRecord::Schema.define(version: 20170420002827) do
 
   add_foreign_key "actors_films", "actors"
   add_foreign_key "actors_films", "films"
-  add_foreign_key "categories_films", "categories"
-  add_foreign_key "categories_films", "films"
   add_foreign_key "comments", "users"
   add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "users"
