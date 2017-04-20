@@ -7,6 +7,10 @@ class Review < ApplicationRecord
 
   validates :text, presence: true
 
+  def reviewed_at
+    self.created_at.asctime
+  end
+
   def self.recent
     Review.order("created_at DESC").limit(5)
   end
