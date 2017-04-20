@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Category.destroy_all
+Film.destroy_all
+Actor.destroy_all
+
+5.times do |x|
+  User.create!(first_name: "tom#{x}" , last_name: "rogers#{x}", email:"tom@tom#{x}.com", password:'123456', trusted: [true,false].sample)
+end
+
+10.times do |x|
+  film = Film.create!(title: "Serendipityx#{x}")
+  category = Category.create!(title:"Romancex#{x}")
+  actor = Actor.create!(first_name:"Namuun", last_name:"Pitt#{x}")
+  film.categories << category
+  film.actors << actor
+  film.ratings << Rating.new(stars: rand(1..5), user: User.first)
+  film.save!
+end
