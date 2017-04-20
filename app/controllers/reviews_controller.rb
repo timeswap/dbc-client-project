@@ -22,6 +22,24 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def actor_new
+    authenticate
+    @actor = Actor.find(params[:actor_id])
+    @review = @actor.reviews.new
+  end
+
+  def actor_create
+    authenticate
+    @actor = Actor.find(params[:actor_id])
+    @review = @actor.reviews.new(review_params)
+    if @review.save
+      redirect_to @review
+    else
+      @errors = @review.errors.full_messages
+      render 'actor_new'
+    end
+  end
+
   def edit
     authenticate
     @review = Review.find(params[:id])
