@@ -1,5 +1,6 @@
 %h1.title= @film.title
 .average-rating= @film.average_rating
+= link_to "Add rating", film_ratings_new_path(@film)
 
 = link_to "Add comment"
 = link_to "Add review"
