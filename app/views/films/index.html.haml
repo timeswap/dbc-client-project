@@ -1,5 +1,8 @@
 - @films.each do |film|
   .film
-    .film-title= film.title
+
+    .film-title= link_to "#{film.title}", fil
     .film-rating= film.rating_avg
     %br/
+
+

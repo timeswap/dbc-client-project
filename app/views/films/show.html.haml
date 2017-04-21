@@ -1,1 +1,24 @@
-%h3 Film show page
+%h1.title= @film.title
+.average-rating= @film.average_rating
+= link_to "Add rating", film_ratings_new_path(@film)
+
+= link_to "Add comment"
+= link_to "Add review"
+
+%p Actors
+%ul
+  - @film.actors.each do |actor|
+    %li= actor.first_name
+
+
+%h3 Reviews
+- @film.reviews.each do |review|
+  .review-text= review.text
+
+
+%h3 Comments
+- @film.comments.each do |comment|
+  .comment-text= comment.text
+
+
+
