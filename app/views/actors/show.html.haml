@@ -1,0 +1,14 @@
+%h1
+  = @actor.full_name
+
+%h2 Films:
+%ul
+  -@actor.films.each do |film|
+    %li
+      =link_to(film.title, film_path(film))
+
+%h2 Reviews:
+=link_to("Review this actor", actor_reviews_new_path(@actor))
+
+-@actor.reviews.each do |review|
+  =render partial: 'reviews/show', locals: {review:review}
