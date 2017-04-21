@@ -1,0 +1,13 @@
+.review-show
+  %p
+    -if !@review
+      =link_to("View full review", review_path(review))
+  %p
+  =review.text
+  %p
+    %label by:
+    %strong
+      =review.user.full_name
+    %label reviewed on:
+    =review.reviewed_at
+    -# =link_to("Add comment", PLACEHOLDER(NESTED COMMENT PATH))

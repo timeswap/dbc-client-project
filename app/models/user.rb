@@ -21,6 +21,10 @@ class User < ApplicationRecord
     self.trusted = true if "ILOVENICHOLASCAGE" == @secret_code
   end
 
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
   # def password=(new_password)
 
   # User.new(username: 'namuun', password: 12343 secret_code: "Iloveblah")
