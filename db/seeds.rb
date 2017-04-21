@@ -20,7 +20,16 @@ end
 User.create(first_name: 'tom', last_name: 'tom', email: 'tom@tom.com', password: 'tomtom', trusted: true)
 
 Category.create!([{title: "Drama"}, {title: "Romance"}, {title:"Action"}, {title:"Fantasy"}, {title:"Animation"}, {title: "Adventure"}, {title: "Family"}, {title:"Horror"}, {title:"Mystery"}, {title:"Thriller"}, {title: "Sci-Fi"}])
-Film.create!([{title: "Titanic"}, {title: "Akira"}, {title: "Forrest Gump"}, {title: "The Matrix"}, {title: "Spirited Away"}, {title: "Psycho"}, {title: "Memento"}, {title: "The Shining"}, {title: "Your Name"}, {title: "Old Boy"}])
+Film.create!([{title: "Titanic", video_url: "https://www.youtube.com/embed/zCy5WQ9S4c0"},
+  {title: "Akira", video_url: "https://www.youtube.com/embed/7G5zQW4TinQ"},
+  {title: "Forrest Gump", video_url: "https://www.youtube.com/embed/uPIEn0M8su0" },
+  {title: "The Matrix", video_url: "https://www.youtube.com/embed/m8e-FF8MsqU"},
+  {title: "Spirited Away", video_url: "https://www.youtube.com/embed/ByXuk9QqQkk"},
+  {title: "Psycho", video_url: "https://www.youtube.com/embed/NG3-GlvKPcg"},
+  {title: "Memento", video_url: "https://www.youtube.com/embed/0vS0E9bBSL0"},
+  {title: "The Shining", video_url: "https://www.youtube.com/embed/5Cb3ik6zP2I" },
+  {title: "Your Name", video_url: "https://www.youtube.com/embed/xU47nhruN-Q"},
+  {title: "Old Boy", video_url: "https://www.youtube.com/embed/2HkjrJ6IK5E"}])
 Actor.create!([{first_name: "Leonardo", last_name: "DiCaprio"}, {first_name: "Tom", last_name: "Hanks"}, {first_name: "Carrie-Anne", last_name: "Moss"}, {first_name: "Anthony", last_name: "Perkins"}, {first_name: "Janet", last_name: "Leigh"}, {first_name: "Guy", last_name: "Pearce"}, {first_name: "Jack", last_name: "Nicholson"}, {first_name: "Jie-tae", last_name: "Yu"}])
 Review.create!([{text: "Great Movie", user: User.first, reviewable: Film.first}, {text:"Piece of crap", user: User.second, reviewable: Film.second}, {text:"Just ok", user: User.third, reviewable: Film.third}, {text: "Mind Blown", user: User.first, reviewable: Film.fourth}, {text: "Meh", user: User.first, reviewable: Film.fifth}])
 
