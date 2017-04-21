@@ -1,5 +1,8 @@
 .review-show
   %p
+    -if !@review
+      =link_to("View full review", review_path(review))
+  %p
   =review.text
   %p
     %label by:
