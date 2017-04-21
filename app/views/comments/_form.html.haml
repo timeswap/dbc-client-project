@@ -1,0 +1,9 @@
+.comment-form
+  = form_for :comment, url: "/films/#{@film.id}/comments", method: 'POST' do |f|
+    -if @errors
+      - @errors.each do |error|
+        = error
+    = f.text_area :text
+    = f.hidden_field :user_id, value: current_user.id
+
+    =f.submit
