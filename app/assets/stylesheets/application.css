@@ -70,9 +70,14 @@ body {
     background-color: #ededed;
 }
 
-.review-show {
+/*.review-show {
     width: 20%;
     float: left;
-    /*text-align: center*/
+    text-align: center
 }
+
+.comment-show {
+    width: 20%;
+    float: bottom;
+}*/
 

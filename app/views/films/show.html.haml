@@ -1,4 +1,4 @@
-.film-image=image_tag(film_image_url(@film.title)) 
+.film-image=image_tag(film_image_url(@film.title))
 %h1.title= @film.title
 .average-rating= @film.rating_avg
 -if !@film.raters.include?(current_user)
@@ -8,11 +8,15 @@
 - if current_user.trusted
   = link_to "Add review", film_reviews_new_path(@film)
 
+
 %h3 Actors
 %ul
   - @film.actors.each do |actor|
     %li= link_to(actor.full_name, actor_path(actor))
 
+-if @film.video_url
+  %h3 Trailer for your viewing pleasure
+  %iframe{width: 560, height: 315, :src => @film.video_url}
 
 %h3 Reviews
 - @film.reviews.each do |review|
@@ -22,6 +26,7 @@
 %h3 Comments
 - @film.comments.each do |comment|
   =render partial: 'comments/show', locals: {comment: comment}
+
 
 
 
