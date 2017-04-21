@@ -1,6 +1,7 @@
 # README
 
 Movie Review Website
+see heroku link: dbc-client-rated.herokuapp.com
 
 Features missing in MVP:
 
