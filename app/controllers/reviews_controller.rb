@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.recent
+    @display = true
   end
 
   def show

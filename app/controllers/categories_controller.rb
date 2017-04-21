@@ -8,5 +8,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @films = Film.all
     @reviews = @category.recent
+    @display = true
   end
 end

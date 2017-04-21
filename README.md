@@ -6,12 +6,12 @@ Features missing in MVP:
 
 Potential Improvements:
 - you cannot rate your own content? (currently can)
-- reviews show could link to itself with either "view full review" if on the film or actor page, but to the title of the reviewable otherwise (can do this with passing @review_object = true where you just want the "view full review" link)
 
 Stretch feature:
 - Trusted reviewer can delete other users' comments and ratings
 
 Fixed Issues:
+- reviews show could link to itself with either "view full review" if on the film or actor page, but to the title of the reviewable otherwise (can do this with passing @review_object = true where you just want the "view full review" link)
 - validations for comments so people can't create an empty comment
 - link to reviewed object in review
 - No actor show page
