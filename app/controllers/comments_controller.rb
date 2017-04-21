@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
   def review_create
     @review = Review.find(params[:review_id])
-    @comment = @review.comments.new(review_params)
+    @comment = @review.comments.new(comment_params)
     if @comment.save
       redirect_to @review
     else
@@ -32,8 +32,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  def delete
+  def film_destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @film = Film.find(params[:film_id])
+    redirect_to @film
+  end
 
+  def review_destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @review = Review.find(params[:review_id])
+    redirect_to @review
   end
 
   private

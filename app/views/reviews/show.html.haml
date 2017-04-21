@@ -22,4 +22,4 @@
   %h2 Comments:
   =link_to("New Comment!", "/reviews/#{@review.id}/comments/new")
   - @review.comments.each do |comment|
-    = render partial: 'comments/show', locals: {comment: comment}
+    = render partial: 'comments/review_show', locals: {comment: comment}
