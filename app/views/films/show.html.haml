@@ -10,7 +10,7 @@
 %p Actors
 %ul
   - @film.actors.each do |actor|
-    %li= actor.first_name
+    %li= link_to(actor.full_name, actor_path(actor))
 
 
 %h3 Reviews

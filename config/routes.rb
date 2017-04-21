@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :actors do
+  resources :actors, only: [:show] do
     get '/reviews/new', to: 'reviews#actor_new'
     post '/reviews', to: 'reviews#actor_create'
   end
