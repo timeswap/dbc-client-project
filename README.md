@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Movie Review Website
 
-Things you may want to cover:
+Features missing in MVP
+- User can't delete own film comments
+- When unregistered users visit unauthorized pages server will give errors
+- No validations to prevent user from making a rating over 5
+- Rating needs to be validated to be an integer
+- Rating needs to be rounded down
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Stretch feature
+- Trusted reviewer can delete other users' comments and ratings
