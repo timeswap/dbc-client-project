@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @film = Film.find(params[:film_id])
     @comment = @film.comments.new(comment_params)
     if @comment.save
-      redirect_to @comment
+      redirect_to @film
     else
       @errors = @comment.errors.full_messages
       render 'film_new'

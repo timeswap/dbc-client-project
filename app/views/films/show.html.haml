@@ -2,8 +2,9 @@
 .average-rating= @film.average_rating
 = link_to "Add rating", film_ratings_new_path(@film)
 
-= link_to "Add comment"
-= link_to "Add review"
+= link_to "Add comment", film_comments_new_path(@film)
+- if current_user.trusted
+  = link_to "Add review", film_reviews_new_path(@film)
 
 %p Actors
 %ul
