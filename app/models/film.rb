@@ -12,7 +12,7 @@ class Film < ApplicationRecord
     self.ratings.pluck(:stars).reduce(:+).to_f / self.ratings.length.to_f
   end
 
-<<<<<<< HEAD
+
   def rating_avg
     if self.ratings.empty?
       "no ratings yet!"
@@ -22,6 +22,5 @@ class Film < ApplicationRecord
       (self.ratings.reduce { |sum, rating| sum + rating.stars }) / self.ratings.length
     end
   end
-=======
->>>>>>> 0b5aba914928b3a43018ceb4a31dedae359a1d5b
+
 end
