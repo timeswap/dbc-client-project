@@ -7,13 +7,14 @@ class RatingsController < ApplicationController
     end
 
     def create_film_rating
-      film_rating_post_params
       @film = Film.find(params[:film_id])
-      @rating = @film.ratings.new(stars: params[:rating][:stars].to_i, user: current_user)
+      @rating = @film.ratings.new(post_params)
+      @rating.user=current_user
       if @rating.save
         redirect_to @film
       else
-
+        @errors = @rating.errors.full_messages
+        render 'new_film_rating'
       end
     end
 
@@ -33,11 +34,7 @@ class RatingsController < ApplicationController
     end
 
 private
-  def film_rating_post_params
-    params.require(:rating).permit(:stars, :film_id)
-  end
-
-  def review_rating_post_params
-    params.require(:rating).permit(:stars, :review_id)
+  def post_params
+    params.require(:rating).permit(:stars)
   end
 end
