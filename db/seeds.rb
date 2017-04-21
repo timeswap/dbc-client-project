@@ -23,7 +23,8 @@ Actor.create!([{first_name: "Leonardo", last_name: "DiCaprio"}, {first_name: "To
 Review.create!([{text: "Great Movie", user: User.first, reviewable: Film.first}, {text:"Piece of crap", user: User.second, reviewable: Film.second}, {text:"Just ok", user: User.third, reviewable: Film.third}, {text: "Mind Blown", user: User.first, reviewable: Film.fourth}, {text: "Meh", user: User.first, reviewable: Film.fifth}])
 Film.first.categories << Category.first
 Film.first.categories << Category.second
-
+Film.second.categories << Category.third
+Film.second.categories << Category.fourth
 
 
 10.times do |x|

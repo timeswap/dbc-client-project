@@ -1,8 +1,4 @@
-%h3
-  Newest reviews in #{@category.title}
-- @films.first(5).each do |film|
-  = link_to "#{film.title}", film
-  %br/
-  = film.reviews.first.try(:text)
-  %br/
-  %br/
+
+
+- @reviews.each do |review|
+  = render partial: "reviews/show", locals: {review:review}
