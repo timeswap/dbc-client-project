@@ -1,7 +1,7 @@
 -if @review.reviewable_type == "Film"
   %h1
     Review for #{@review.reviewable.title}
-  =link_to("view page", film_path(@review.reveiwable))
+  =link_to("view page", film_path(@review.reviewable))
 -else
   %h1
     Review for #{@review.reviewable.full_name}
