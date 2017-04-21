@@ -10,4 +10,6 @@ class Film < ApplicationRecord
   def average_rating
     self.ratings.pluck(:stars).reduce(:+).to_f / self.ratings.length.to_f
   end
+
+
 end
