@@ -11,4 +11,5 @@ class Film < ApplicationRecord
     return "No Ratings" if self.ratings.count == 0
     self.ratings.pluck(:stars).reduce(:+).to_f / self.ratings.length.to_f
   end
+
 end

@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 User.destroy_all
 Film.destroy_all
 Category.destroy_all
 Actor.destroy_all
 Review.destroy_all
+Rating.destroy_all
 
 5.times do |x|
   User.create!(first_name: "tom#{x}" , last_name: "rogers#{x}", email:"tom@tom#{x}.com", password:'123456', trusted: [true,false].sample)
@@ -18,10 +20,11 @@ end
 Category.create!([{title: "Drama"}, {title: "Romance"}, {title:"Action"}, {title:"Fantasy"}, {title:"Animation"}, {title:"Horror"}, {title:"Mystery"}, {title:"Thriller"}])
 Film.create!([{title: "Titanic"}, {title: "Akira"}, {title: "Forrest Gump"}, {title: "The Matrix"}, {title: "Spirited Away"}, {title: "Psycho"}, {title: "Memento"}, {title: "The Shining"}, {title: "Your Name"}, {title: "Old Boy"}])
 Actor.create!([{first_name: "Leonardo", last_name: "DiCaprio"}, {first_name: "Tom", last_name: "Hanks"}, {first_name: "Carrie-Anne", last_name: "Moss"}, {first_name: "Anthony", last_name: "Perkins"}, {first_name: "Janet", last_name: "Leigh"}, {first_name: "Carrie-Anne", last_name: "Moss"}, {first_name: "Guy", last_name: "Pearce"}, {first_name: "Jack", last_name: "Nicholson"}, {first_name: "Jie-tae", last_name: "Yu"}])
-Review.create!([{text: "Great Movie", user: User.first, reviewable: Film.first}, {text:"Piece of crap", user: User.second, reviewable: Film.second}, {text:"Just ok", user: User.third, reviewable: Film.third}])
+Review.create!([{text: "Great Movie", user: User.first, reviewable: Film.first}, {text:"Piece of crap", user: User.second, reviewable: Film.second}, {text:"Just ok", user: User.third, reviewable: Film.third}, {text: "Mind Blown", user: User.first, reviewable: Film.fourth}, {text: "Meh", user: User.first, reviewable: Film.fifth}])
 Film.first.categories << Category.first
 Film.first.categories << Category.second
-
+Film.second.categories << Category.third
+Film.second.categories << Category.fourth
 
 
 10.times do |x|

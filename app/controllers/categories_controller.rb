@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @films = Film.all
+    @reviews = Review.all
 
   end
 end
