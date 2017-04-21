@@ -44,7 +44,7 @@ body {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #ededed;
     color: black;
 }
 
@@ -65,3 +65,9 @@ body {
 .alert {
     color: red;
 }
+
+body {
+    background-color: #ededed;
+}
+
+
