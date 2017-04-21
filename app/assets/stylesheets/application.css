@@ -17,6 +17,7 @@
 body {
     max-width: 1190px;
     margin: auto;
+    background-color: #ededed;
 }
 
 .films {
@@ -66,18 +67,13 @@ body {
     color: red;
 }
 
-body {
-    background-color: #ededed;
+.film-review-comment {
+    display: flex;
 }
 
-/*.review-show {
-    width: 20%;
-    float: left;
-    text-align: center
+.film-review, .film-comment {
+    width: 50%;
 }
 
-.comment-show {
-    width: 20%;
-    float: bottom;
-}*/
+
 
