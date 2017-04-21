@@ -8,7 +8,7 @@
 - if current_user.trusted
   = link_to "Add review", film_reviews_new_path(@film)
 
-%p Actors
+%h3 Actors
 %ul
   - @film.actors.each do |actor|
     %li= link_to(actor.full_name, actor_path(actor))
