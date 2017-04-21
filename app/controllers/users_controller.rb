@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    render :"YO MOMMA SO FAT"
+    render :"renderable"
   end
   #   To verify if a user is signed in, use the following helper:
   # user_signed_in?

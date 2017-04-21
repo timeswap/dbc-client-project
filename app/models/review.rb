@@ -18,10 +18,10 @@ class Review < ApplicationRecord
   def rating_avg
     if self.ratings.empty?
       "no ratings yet!"
-    elsif self.ratings.length == 1
-      self.ratings.first.stars
     else
-      (self.ratings.reduce { |sum, rating| sum + rating.stars })/self.ratings.length
+      total = self.ratings.reduce(0) { |sum, rating| sum + rating.stars }
+      avg = total / self.ratings.length.to_f
+      avg.round(2)
     end
   end
 

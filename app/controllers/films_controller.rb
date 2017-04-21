@@ -4,8 +4,8 @@ class FilmsController < ApplicationController
   end
 
   def show
+    authenticate_user!
     @film = Film.find(params[:id])
   end
-
 
 end

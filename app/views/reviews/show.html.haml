@@ -3,7 +3,7 @@
     Review for #{@review.reviewable.title}
 -else
   %h1
-    Review for #{@review.reviewable.first_name} #{@review.actor.last_name}
+    Review for #{@review.reviewable.full_name}
 
 .review-full
   %p
@@ -16,7 +16,7 @@
   = @review.rating_avg
 
   - if !@review.raters.include?(current_user)
-    -# = render partial: 'ratings/form'
+    = render partial: 'ratings/new_review_rating'
 
 .review-comments
   %h2 Comments:
