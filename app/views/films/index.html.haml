@@ -1,8 +1,8 @@
-- @films.each do |film|
-  .film
-
-    .film-title= link_to "#{film.title}", film
-    .film-rating= film.rating_avg
-    %br/
+.films
+  - @films.each do |film|
+    .film
+      .film-image=image_tag(film_image_url(film.title))
+      .film-title= link_to "#{film.title}", film
+    / .film-rating= film.rating_avg
 
 
