@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post '/reviews', to: 'reviews#actor_create'
   end
 
-  resources :films do
+  resources :films, only: [:index, :show] do
     get '/reviews/new', to: 'reviews#film_new'
     post '/reviews', to: 'reviews#film_create'
     get '/comments/new', to: 'comments#film_new'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     delete '/comments/:id', to: 'comments#review_destroy'
   end
 
-  resources :categories
+  resources :categories, only: [:index, :show]
   resources :comments, only: [:destroy]
 
   root "films#index"

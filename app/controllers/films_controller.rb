@@ -7,5 +7,4 @@ class FilmsController < ApplicationController
     @film = Film.find(params[:id])
   end
 
-
 end
