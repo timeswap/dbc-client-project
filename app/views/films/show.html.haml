@@ -16,7 +16,7 @@
 
 -if @film.video_url
   %h3 Trailer for your viewing pleasure
-  %iframe{width: 560, height: 315, :src => @film.video_url}
+  %iframe{allowfullscreen: "allowfullscreen", width: 560, height: 315, :src => @film.video_url}
 
 %h3 Reviews
 - @film.reviews.each do |review|
