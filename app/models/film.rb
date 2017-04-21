@@ -7,10 +7,6 @@ class Film < ApplicationRecord
   has_many :categories_films, dependent: :destroy
   has_many :categories, through: :categories_films
 
-  def average_rating
-    return "No Ratings" if self.ratings.count == 0
-    self.ratings.pluck(:stars).reduce(:+).to_f / self.ratings.length.to_f
-  end
 
   def raters
     if self.ratings.empty?
@@ -20,13 +16,18 @@ class Film < ApplicationRecord
     end
   end
 
+  # def average_rating
+  #   return "No Ratings" if self.ratings.count == 0
+  #   self.ratings.pluck(:stars).reduce(:+).to_f   / self.ratings.length.to_f
+  # end
 
   def rating_avg
     if self.ratings.empty?
-      "no ratings yet!"
+      "No ratings yet!"
     else
       total = self.ratings.reduce(0) { |sum, rating| sum + rating.stars }
-      total / self.ratings.length
+      avg = total / self.ratings.length.to_f
+      avg.round(2)
     end
   end
 
