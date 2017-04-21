@@ -14,6 +14,16 @@
  *= require_self
  */
 
+body {
+    max-width: 1190px;
+    margin: auto;
+}
+
+.films {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -22,7 +32,7 @@
 }
 
 /* Style the links inside the navigation bar */
-.topnav a, img {
+.topnav a, .topnav img {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -42,4 +52,11 @@
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+.film {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
 }
