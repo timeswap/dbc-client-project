@@ -11,6 +11,7 @@ Stretch feature:
 - Trusted reviewer can delete other users' comments and ratings
 
 Fixed Issues:
+- validations for comments so people can't create an empty comment
 - link to reviewed object in review
 - No actor show page
 - User can't delete own film comments
