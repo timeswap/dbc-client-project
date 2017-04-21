@@ -1,7 +1,13 @@
 .review-show
   %p
     -if !@review
-      =link_to("View full review", review_path(review))
+      -if @display
+        -if review.reviewable_type == "Actor"
+          =link_to(review.reviewable.full_name, actor_path(review.reviewable))
+        -else
+          =link_to(review.reviewable.title, film_path(review.reviewable))
+      -else
+        =link_to("View full review", review_path(review))
   %p
   =review.text
   %p
