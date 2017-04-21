@@ -8,4 +8,4 @@
     %label commented on:
     =comment.reviewed_at
     -if (comment.user == current_user) || current_user == @review.user
-      =link_to("Delete", "/reviews/#{@review.id}/comments/#{comment.id}", method: 'DELETE')
+      =link_to("Delete", review_comment_path(@review, comment), method: 'DELETE')
