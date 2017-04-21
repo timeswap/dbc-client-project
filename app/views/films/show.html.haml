@@ -1,3 +1,4 @@
+.film-image=image_tag(film_image_url(@film.title)) 
 %h1.title= @film.title
 .average-rating= @film.rating_avg
 -if !@film.raters.include?(current_user)
