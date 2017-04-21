@@ -1,6 +1,8 @@
 %h3
-  Newest 5 reviews in #{@category.title}
-- @films.each do |film|
-  = link_to "#{film.title}", film_url(film)
-  = film.reviews
+  Newest reviews in #{@category.title}
+- @films.first(5).each do |film|
+  = link_to "#{film.title}", film
+  %br/
+  = film.reviews.first.try(:text)
+  %br/
   %br/
