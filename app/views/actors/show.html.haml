@@ -8,7 +8,8 @@
       =link_to(film.title, film_path(film))
 
 %h2 Reviews:
-=link_to("Review this actor", actor_reviews_new_path(@actor))
+-if current_user.trusted?
+  =link_to("Review this actor", actor_reviews_new_path(@actor))
 
 -@actor.reviews.each do |review|
   =render partial: 'reviews/show', locals: {review:review}
