@@ -1,0 +1,4 @@
+= form_for @rating, url: film_ratings_path do |f|
+  = f.label :stars, "How many stars?"
+  = f.text_field :stars
+  = f.submit "Rate Film"
