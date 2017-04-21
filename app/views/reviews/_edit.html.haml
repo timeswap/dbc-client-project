@@ -1,0 +1,9 @@
+.review-form
+  = form_for :review, url: review_path(@review), method: 'PATCH' do |f|
+    -if @errors
+      - @errors.each do |error|
+        = error
+    = f.text_area :text
+    = f.hidden_field :user_id, value: current_user.id
+
+    =f.submit
