@@ -12,6 +12,14 @@ class Film < ApplicationRecord
     self.ratings.pluck(:stars).reduce(:+).to_f / self.ratings.length.to_f
   end
 
+  def raters
+    if self.ratings.empty?
+      []
+    else
+      self.ratings.map {|rating| rating.user}
+    end
+  end
+
 
   def rating_avg
     if self.ratings.empty?

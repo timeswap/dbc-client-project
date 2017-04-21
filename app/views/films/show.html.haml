@@ -1,6 +1,7 @@
 %h1.title= @film.title
 .average-rating= @film.average_rating
-=render partial: 'ratings/new_film_rating'
+-if !@film.raters.include?(current_user)
+  =render partial: 'ratings/new_film_rating'
 
 = link_to "Add comment", film_comments_new_path(@film)
 - if current_user.trusted
