@@ -1,6 +1,6 @@
 %h1.title= @film.title
 .average-rating= @film.average_rating
-= link_to "Add rating", film_ratings_new_path(@film)
+=render partial: 'ratings/new_film_rating'
 
 = link_to "Add comment", film_comments_new_path(@film)
 - if current_user.trusted
