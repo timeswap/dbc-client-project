@@ -12,12 +12,10 @@ Rails.application.routes.draw do
     get '/comments/new', to: 'comments#film_new'
     post '/comments', to: 'comments#film_create'
     delete '/comments/:id', to: 'comments#film_destroy'
-    get '/ratings/new', to: 'ratings#new_film_rating'
     post '/ratings', to: 'ratings#create_film_rating'
   end
 
   resources :reviews, except: [:new, :create] do
-    get '/ratings/new', to: 'ratings#new_review_rating'
     post '/ratings', to: 'ratings#create_review_rating'
     get '/comments/new', to: 'comments#review_new'
     post '/comments', to: 'comments#review_create'

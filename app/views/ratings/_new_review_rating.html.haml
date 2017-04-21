@@ -1,0 +1,7 @@
+= form_for :rating, url: review_ratings_path(@review) do |f|
+  -if @errors
+    - @errors.each do |error|
+      =error
+  = f.label :stars, "How many stars?"
+  = f.select(:stars, [1,2,3,4,5])
+  = f.submit "Rate Review"

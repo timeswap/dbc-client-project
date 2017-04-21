@@ -16,7 +16,7 @@
   = @review.rating_avg
 
   - if !@review.raters.include?(current_user)
-    -# = render partial: 'ratings/form'
+    = render partial: 'ratings/new_review_rating'
 
 .review-comments
   %h2 Comments:
