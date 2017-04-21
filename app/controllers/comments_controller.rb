@@ -32,4 +32,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def delete
+
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text, :user_id)
+  end
+
 end

@@ -27,5 +27,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :comments, only: [:destroy]
+
   root "films#index"
 end
