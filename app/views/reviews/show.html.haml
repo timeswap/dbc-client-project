@@ -15,7 +15,7 @@
     = link_to("Delete", review_path(@review), method: 'DELETE')
 
   %label Rating:
-  = @review.rating_avg
+  .average-rating= @review.rating_avg
 
   - if !@review.raters.include?(current_user)
     = render partial: 'ratings/new_review_rating'
