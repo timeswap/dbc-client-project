@@ -29,7 +29,10 @@ class CommentsController < ApplicationController
     @review = Review.find(params[:review_id])
     @comment = @review.comments.new(comment_params)
     if @comment.save
-      redirect_to @review
+      respond_to do |f|
+        f.html {redirect_to @review}
+        f.js
+      end
     else
       @errors = @comment.errors.full_messages
       render 'review_new'
