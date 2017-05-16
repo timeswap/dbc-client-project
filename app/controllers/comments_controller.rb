@@ -1,15 +1,23 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+
   def film_new
     @film = Film.find(params[:film_id])
     @comment = @film.comments.new
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def film_create
     @film = Film.find(params[:film_id])
     @comment = @film.comments.new(comment_params)
     if @comment.save
-      redirect_to @film
+      respond_to do |f|
+        f.html {redirect_to @film}
+        f.js
+      end
     else
       @errors = @comment.errors.full_messages
       render 'film_new'
@@ -19,13 +27,20 @@ class CommentsController < ApplicationController
   def review_new
     @review = Review.find(params[:review_id])
     @comment = @review.comments.new
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def review_create
     @review = Review.find(params[:review_id])
     @comment = @review.comments.new(comment_params)
     if @comment.save
-      redirect_to @review
+      respond_to do |f|
+        f.html {redirect_to @review}
+        f.js
+      end
     else
       @errors = @comment.errors.full_messages
       render 'review_new'

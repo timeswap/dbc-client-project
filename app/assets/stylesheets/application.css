@@ -75,6 +75,10 @@ body {
     width: 50%;
 }
 
+.average-rating {
+    display: inline-block;
+}
+
 .center {
     text-align: center;
 }

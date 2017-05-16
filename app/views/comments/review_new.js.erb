@@ -1,0 +1,4 @@
+var commentDiv = $('.new-comment-link')
+if(commentDiv.children().length === 1){
+  commentDiv.append('<%= j render partial: "review_form" %>')
+}

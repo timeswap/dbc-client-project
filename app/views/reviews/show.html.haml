@@ -15,14 +15,14 @@
     = link_to("Delete", review_path(@review), method: 'DELETE')
 
   %label Rating:
-  = @review.rating_avg
+  .average-rating= @review.rating_avg
 
   - if !@review.raters.include?(current_user)
     = render partial: 'ratings/new_review_rating'
 
 .review-comments
   %h2 Comments:
-  =link_to("New Comment!", "/reviews/#{@review.id}/comments/new")
+  .new-comment-link=link_to("New Comment!", "/reviews/#{@review.id}/comments/new", remote: true)
 
   - @review.comments.each do |comment|
     = render partial: 'comments/review_show', locals: {comment: comment}
