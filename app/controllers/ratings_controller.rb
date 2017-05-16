@@ -7,7 +7,10 @@ class RatingsController < ApplicationController
       @rating = @film.ratings.new(post_params)
       @rating.user=current_user
       if @rating.save
-        redirect_to @film
+        respond_to do |f|
+          f.html { redirect_to @film}
+          f.js
+        end
       else
         @errors = @rating.errors.full_messages
         render 'new_film_rating'
