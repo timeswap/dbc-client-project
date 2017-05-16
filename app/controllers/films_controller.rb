@@ -1,6 +1,7 @@
 class FilmsController < ApplicationController
   def index
-    @films = Film.all
+    # @films = Film.all
+    @films = Film.order(:title).page params[:page]
   end
 
   def show
