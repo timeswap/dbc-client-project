@@ -8,7 +8,8 @@
     -if !@film.raters.include?(current_user)
       =render partial: 'ratings/new_film_rating'
 
-    = link_to "Add comment", film_comments_new_path(@film)
+    .new-comment-link= link_to "Add comment", film_comments_new_path(@film), remote: true
+    -# lets put this (the above) next to the actual comments.
     - if current_user.trusted
       = link_to "Add review", film_reviews_new_path(@film)
 
@@ -26,7 +27,7 @@
     %h3 Reviews
     - @film.reviews.each do |review|
       =render partial: 'reviews/show', locals: {review: review}
-  .film-comment    
+  .film-comment
     %h3 Comments
     - @film.comments.each do |comment|
       =render partial: 'comments/show', locals: {comment: comment}
