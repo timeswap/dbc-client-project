@@ -14,6 +14,10 @@ class ReviewsController < ApplicationController
     authenticate
     @film = Film.find(params[:film_id])
     @review = @film.reviews.new
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def film_create
@@ -21,7 +25,10 @@ class ReviewsController < ApplicationController
     @film = Film.find(params[:film_id])
     @review = @film.reviews.new(review_params)
     if @review.save
-      redirect_to @review
+      respond_to do |f|
+        f.html {redirect_to @review}
+        f.js
+      end
     else
       @errors = @review.errors.full_messages
       render 'film_new'
@@ -32,6 +39,10 @@ class ReviewsController < ApplicationController
     authenticate
     @actor = Actor.find(params[:actor_id])
     @review = @actor.reviews.new
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def actor_create
@@ -39,7 +50,10 @@ class ReviewsController < ApplicationController
     @actor = Actor.find(params[:actor_id])
     @review = @actor.reviews.new(review_params)
     if @review.save
-      redirect_to @review
+      respond_to do |f|
+        f.html {redirect_to @review}
+        f.js
+      end
     else
       @errors = @review.errors.full_messages
       render 'actor_new'

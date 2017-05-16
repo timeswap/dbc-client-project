@@ -1,5 +1,5 @@
 .review-form
-  = form_for :review, url: "/films/#{@film.id}/reviews", method: 'POST' do |f|
+  = form_for :review, url: "/films/#{@film.id}/reviews", method: 'POST', remote: true do |f|
     -if @errors
       - @errors.each do |error|
         = error
