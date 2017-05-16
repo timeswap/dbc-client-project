@@ -4,5 +4,5 @@
       .film-image= link_to image_tag(film_image_url(film.title)), film
       .film-title= link_to "#{film.title}", film
     / .film-rating= film.rating_avg
-
+= paginate @films
 
