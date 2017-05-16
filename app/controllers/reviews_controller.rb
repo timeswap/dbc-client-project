@@ -23,14 +23,14 @@ class ReviewsController < ApplicationController
   def film_create
     authenticate
     @film = Film.find(params[:film_id])
-    @review = @film.reviews.new(review_params)
-    if @review.save
+    @my_review = @film.reviews.new(review_params)
+    if @my_review.save
       respond_to do |f|
-        f.html {redirect_to @review}
+        f.html {redirect_to @my_review}
         f.js
       end
     else
-      @errors = @review.errors.full_messages
+      @errors = @my_review.errors.full_messages
       render 'film_new'
     end
   end
