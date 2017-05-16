@@ -48,14 +48,14 @@ class ReviewsController < ApplicationController
   def actor_create
     authenticate
     @actor = Actor.find(params[:actor_id])
-    @review = @actor.reviews.new(review_params)
-    if @review.save
+    @my_review = @actor.reviews.new(review_params)
+    if @my_review.save
       respond_to do |f|
-        f.html {redirect_to @review}
+        f.html {redirect_to @my_review}
         f.js
       end
     else
-      @errors = @review.errors.full_messages
+      @errors = @my_review.errors.full_messages
       render 'actor_new'
     end
   end
