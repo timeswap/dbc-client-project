@@ -19,6 +19,10 @@ class CommentsController < ApplicationController
   def review_new
     @review = Review.find(params[:review_id])
     @comment = @review.comments.new
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def review_create
