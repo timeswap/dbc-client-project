@@ -9,7 +9,8 @@
 
 %h2 Reviews:
 -if current_user.trusted
-  =link_to("Review this actor", actor_reviews_new_path(@actor))
+  .new-review-link=link_to("Review this actor", actor_reviews_new_path(@actor), remote: true)
 
--@actor.reviews.each do |review|
-  =render partial: 'reviews/show', locals: {review:review}
+.actor-review
+  -@actor.reviews.each do |review|
+    =render partial: 'reviews/show', locals: {review:review}
