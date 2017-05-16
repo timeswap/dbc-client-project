@@ -7,6 +7,7 @@ class Film < ApplicationRecord
   has_many :categories_films, dependent: :destroy
   has_many :categories, through: :categories_films
 
+  paginates_per 9
 
   def raters
     if self.ratings.empty?
