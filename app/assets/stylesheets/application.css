@@ -33,7 +33,7 @@ body {
 }
 
 /* Style the links inside the navigation bar */
-.topnav a, .topnav img {
+.topnav a, .topnav img{
     float: left;
     display: block;
     color: #f2f2f2;
@@ -41,6 +41,14 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
+
+/* Style search form inside the navigation bar */
+.topnav form {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
 }
 
 /* Change the color of links on hover */
@@ -79,6 +87,7 @@ body {
     display: inline-block;
 }
 
+/* Start of pagination styling */
 .center {
     text-align: center;
 }
@@ -112,3 +121,4 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+/* End of pagination styling */
