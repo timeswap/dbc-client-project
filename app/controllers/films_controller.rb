@@ -1,15 +1,11 @@
 class FilmsController < ApplicationController
   def index
-    # @films = Film.all
     @films = Film.order(:title).page params[:page]
-    @search = Film.ransack(params[:q])
-  	@film = @search.result(distinct: true)
 
-  	@allfilms = Film.all
 	  if params[:search]
-	    @allfilms = Film.search(params[:search]).order("title DESC")
+	    @films = Film.search(params[:search]).order("title DESC").page
 	  else
-	    @allfilms = Film.all.order("created_at DESC")
+	    @films = Film.all.order("created_at DESC").page
 	  end
 
   end
