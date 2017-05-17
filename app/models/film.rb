@@ -32,4 +32,12 @@ class Film < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    where("title ILIKE ?", "%#{search}%") 
+    # if search
+    #   where('title ILIKE ?', "%#{search}%")
+    # else
+    #   all
+    # end
+  end
 end

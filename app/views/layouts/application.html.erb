@@ -23,6 +23,14 @@
       <% else %>
         <%= link_to("Logout", destroy_user_session_path, method: "DELETE") %>
       <% end %>
+<!--       <form>
+        <input id="searchBox" type="text" type="submit" name="searchBox" required/>
+        <button id="searchButton" type="submit">Search</button>
+      </form> -->
+      <%= form_tag(films_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Movies" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
     </div>
 
     <p class="notice"><%= notice %></p>
