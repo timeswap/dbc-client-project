@@ -49,16 +49,24 @@ class CommentsController < ApplicationController
 
   def film_destroy
     @comment = Comment.find(params[:id])
+    @id = params[:id]
     @comment.destroy
     @film = Film.find(params[:film_id])
-    redirect_to @film
+    respond_to do |f|
+      f.html {redirect_to @film}
+      f.js
+    end
   end
 
   def review_destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    @id = params[:id]
     @review = Review.find(params[:review_id])
-    redirect_to @review
+    respond_to do |f|
+      f.html {redirect_to @review}
+      f.js
+    end
   end
 
   private
