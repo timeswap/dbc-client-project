@@ -1,4 +1,7 @@
-var commentDiv = $('.new-comment-link')
+var commentDiv = $('.new-comment-link');
 if(commentDiv.children().length === 1){
-  commentDiv.append('<%= j render partial: "review_form" %>')
+  commentDiv.append('<%= j render partial: "review_form" %>');
+}else{
+  commentDiv.find('.comment-form').remove();
 }
+
