@@ -1,4 +1,4 @@
-.comment-show
+%div{:class => "comment-show-#{comment.id}"}
   %p
   =comment.text
   %p
@@ -8,4 +8,4 @@
     %label commented on:
     =comment.reviewed_at
     -if comment.user == current_user
-      =link_to("Delete", "/films/#{@film.id}/comments/#{comment.id}", method: 'DELETE')
+      =link_to("Delete", "/films/#{@film.id}/comments/#{comment.id}", method: 'DELETE', remote: true)

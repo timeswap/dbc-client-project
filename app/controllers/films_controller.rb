@@ -10,7 +10,6 @@ class FilmsController < ApplicationController
     else
     	@films = Film.search(params[:search]).order("title ASC").page
     end
-
   end
 
   def show
