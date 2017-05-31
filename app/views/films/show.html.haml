@@ -22,7 +22,6 @@
       =render partial: 'ratings/new_film_rating'
 
     .new-comment-link= link_to "Add comment", film_comments_new_path(@film), remote: true
-    -# lets put this (the above) next to the actual comments.
     - if current_user.trusted
       .new-review-link= link_to "Add review", film_reviews_new_path(@film), remote: true
 
